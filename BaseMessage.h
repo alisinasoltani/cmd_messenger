@@ -10,7 +10,8 @@
             int senderId;
 
         public:
-            BaseMessage() {
+            BaseMessage(int sender_id) {
+                this->senderId = sender_id;
                 auto now = std::chrono::system_clock::now();
                 sentDate = std::chrono::system_clock::to_time_t(now);
                 std::cout << "sent at: " << std::ctime(&sentDate);

@@ -10,7 +10,7 @@ using namespace std;
             string msg;
 
         public:
-            SimpleMessage(string message_text): BaseMessage() {
+            SimpleMessage(int sender_id, string message_text): BaseMessage(sender_id) {
                 this->msg = message_text;
             }
     };
@@ -20,7 +20,7 @@ using namespace std;
             string imgPath;
 
         public:
-            PostMessage(string message_text, string image_path): SimpleMessage(message_text) {
+            PostMessage(int sender_id, string message_text, string image_path): SimpleMessage(sender_id, message_text) {
                 this->imgPath = image_path;
             }
     };
@@ -32,7 +32,7 @@ using namespace std;
             bool is_quiz;
         
         public:
-            VoteMessage(string vote_title, string* options, bool is_quiz): BaseMessage() {
+            VoteMessage(int sender_id, string vote_title, string* options, bool is_quiz): BaseMessage(sender_id) {
                 this->voteTitle = vote_title;
                 for (int i = 0; i < 10; i++) {
                     this->options[i] = options[i];
