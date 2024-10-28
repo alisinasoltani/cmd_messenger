@@ -16,5 +16,13 @@
                 sentDate = std::chrono::system_clock::to_time_t(now);
                 std::cout << "sent at: " << std::ctime(&sentDate);
             }
+
+            int getSenderId() {
+                return this->senderId;
+            }
+
+            std::time_t getSentDate() {
+                return this->sentDate;
+            }
     };
 #endif

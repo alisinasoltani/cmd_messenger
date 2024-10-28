@@ -92,7 +92,9 @@ int main() {
                     {
                         cout << BLUE << "Show All Chats." << RESET << endl;
                         for (int i = 0; i < total_messages; i++) {
-                            cout << "message number " << i << endl;
+                            cout << i << ":> ";
+                            cout << allMessages[i]->getSenderId() << "\t";
+                            cout << allMessages[i]->getSentDate() << endl;
                         }
                         break;
                     }

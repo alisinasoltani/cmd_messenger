@@ -13,6 +13,10 @@ using namespace std;
             SimpleMessage(int sender_id, string message_text): BaseMessage(sender_id) {
                 this->msg = message_text;
             }
+
+            string getMessage() {
+                return this->msg;
+            }
     };
 
     class PostMessage: public SimpleMessage {
@@ -22,6 +26,10 @@ using namespace std;
         public:
             PostMessage(int sender_id, string message_text, string image_path): SimpleMessage(sender_id, message_text) {
                 this->imgPath = image_path;
+            }
+
+            string getImagePath() {
+                return imgPath;
             }
     };
 
@@ -38,6 +46,18 @@ using namespace std;
                     this->options[i] = options[i];
                 }
                 this->is_quiz = is_quiz;
+            }
+
+            string getVoteTitle() {
+                return this->voteTitle;
+            }
+
+            string* getVoteOptions() {
+                return this->options;
+            }
+
+            bool isVoteQuiz() {
+                return this->is_quiz;
             }
     };
 #endif
