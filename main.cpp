@@ -17,8 +17,9 @@ int main() {
         cout << MAGENTA << "Username: " << RESET;
         cin >> username;
         cout << endl;
-        cout << MAGENTA << "Password: " << RESET << endl;
+        cout << MAGENTA << "Password: " << RESET;
         cin >> password;
+        cout << endl;
         if (auth.is_authenticated(username, password)) {
             cout << BOLDCYAN << "Welcome!" << RESET;
             while (1) {
