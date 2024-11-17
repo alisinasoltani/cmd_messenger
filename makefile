@@ -1,2 +1,2 @@
 make:
-	g++ main.cpp Auth.cpp -o app.exe & app.exe
+	g++ main.cpp Auth.cpp User.cpp -o app.exe & app.exe

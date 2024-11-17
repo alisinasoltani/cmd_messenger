@@ -52,3 +52,7 @@ int User::getUserId(const std::string &username, const std::string &password) co
 int User::getUserCount(const std::string &username, const std::string &password) const {
     return this->userCount;
 }
+
+std::string User::getUsername() const {
+    return this->username;
+}

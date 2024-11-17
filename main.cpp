@@ -15,14 +15,13 @@ int main() {
     int total_messages = 0;
     BaseMessage* allMessages[100];
     int option;
-
     while (1) {
-        system("cls");
         cout << MAGENTA << "Username: " << RESET;
         cin >> username;
         cout << MAGENTA << "Password: " << RESET;
         cin >> password;
         if (auth.is_authenticated(username, password)) {
+            system("cls");
             cout << BOLDCYAN << "Welcome!" << RESET << endl;
             while (1) {
                 cout << "Options: " << endl;
@@ -104,6 +103,8 @@ int main() {
                 }
             }
             
+        } else {
+            std::cout << BOLDRED << "User Not Found! Try Again." << RESET << std::endl;
         }
     }
     return 0;

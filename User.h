@@ -18,5 +18,6 @@
             bool isPasswordValid(const std::string &password) const;
             int getUserId(const std::string &username, const std::string &password) const;
             int getUserCount(const std::string &username, const std::string &password) const;
+            std::string getUsername() const;
     };
 #endif
