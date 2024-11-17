@@ -10,6 +10,6 @@ using namespace std;
         string password = "admin";
 
     public:
-        bool is_authenticated(string username, string password);
+        bool is_authenticated(const std::string &username, const std::string &password);
     };
 #endif
