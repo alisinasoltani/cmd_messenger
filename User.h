@@ -5,16 +5,18 @@
     #define __USER__
     class User {
         private:
-            static int userId;
+            static int userCount;
+            int userId;
             std::string username;
             std::size_t password;
         public:
-            User (const std::string &username, const std::string password);
+            User (const std::string &username, const std::string &password);
             User (const User &user);
             ~User();
 
-            bool isUsernameValid(const std::string &username);
-            bool isPasswordValid(const std::string &username);
-            int getUserId(const std::string &username, const std::string &password);
+            bool isUsernameValid(const std::string &username) const;
+            bool isPasswordValid(const std::string &password) const;
+            int getUserId(const std::string &username, const std::string &password) const;
+            int getUserCount(const std::string &username, const std::string &password) const;
     };
 #endif
