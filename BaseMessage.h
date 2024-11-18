@@ -17,12 +17,14 @@
                 std::cout << "sent at: " << std::ctime(&sentDate);
             }
 
-            int getSenderId() {
+            int getSenderId() const {
                 return this->senderId;
             }
 
-            std::time_t getSentDate() {
-                return this->sentDate;
+            std::string getSentDate() const {
+                return std::ctime(&sentDate);
             }
+
+            virtual void printMessage() = 0;
     };
 #endif

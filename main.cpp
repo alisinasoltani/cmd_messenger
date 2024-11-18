@@ -11,18 +11,17 @@ using namespace std;
 int main() {
     Auth auth;
     string username, password, message_text, image_path;
-    int id = 123;
     int total_messages = 0;
     BaseMessage* allMessages[100];
     int option;
-
     while (1) {
-        system("cls");
         cout << MAGENTA << "Username: " << RESET;
         cin >> username;
         cout << MAGENTA << "Password: " << RESET;
         cin >> password;
-        if (auth.is_authenticated(username, password)) {
+        int id = auth.is_authenticated(username, password);
+        if (id != 0) {
+            system("cls");
             cout << BOLDCYAN << "Welcome!" << RESET << endl;
             while (1) {
                 cout << "Options: " << endl;
@@ -92,9 +91,8 @@ int main() {
                     {
                         cout << BLUE << "Show All Chats." << RESET << endl;
                         for (int i = 0; i < total_messages; i++) {
-                            cout << i << ":> ";
-                            cout << allMessages[i]->getSenderId() << "\t";
-                            cout << allMessages[i]->getSentDate() << endl;
+                            cout << i+1 << ":> ";
+                            allMessages[i]->printMessage();
                         }
                         break;
                     }
@@ -104,6 +102,8 @@ int main() {
                 }
             }
             
+        } else {
+            std::cout << BOLDRED << "User Not Found! Try Again." << RESET << std::endl;
         }
     }
     return 0;

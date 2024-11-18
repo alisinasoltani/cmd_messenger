@@ -2,13 +2,25 @@
 #include "terminal_colors.h"
 #include "Auth.h"
 
-using namespace std;
+Auth::Auth() {
+    this->users = new User[3] {
+        User("Alisina", "admin"),
+        User("Alisina2", "admin2"),
+        User("Alisina3", "admin3"),
+    };
+}
 
-bool Auth::is_authenticated(string username, string password) {
-    if (username == "alisina") {
-        if (password == "admin") {
-            return true;
+Auth::~Auth() {
+    delete[] this->users;
+}
+
+int Auth::is_authenticated(const std::string &username, const std::string &password) {
+    for (int i = 0; i < 3; i++) {
+        if (this->users[i].isUsernameValid(username) && this->users[i].isPasswordValid(password)) {
+            std::cout << "found the user!" << std::endl;
+            return this->users[i].getUserId(username, password);
         }
     }
-    return false;
+    std::cout << "not found the user!" << std::endl;
+    return 0;
 }
