@@ -11,7 +11,6 @@ using namespace std;
 int main() {
     Auth auth;
     string username, password, message_text, image_path;
-    int id = 123;
     int total_messages = 0;
     BaseMessage* allMessages[100];
     int option;
@@ -20,7 +19,8 @@ int main() {
         cin >> username;
         cout << MAGENTA << "Password: " << RESET;
         cin >> password;
-        if (auth.is_authenticated(username, password)) {
+        int id = auth.is_authenticated(username, password);
+        if (id != 0) {
             system("cls");
             cout << BOLDCYAN << "Welcome!" << RESET << endl;
             while (1) {

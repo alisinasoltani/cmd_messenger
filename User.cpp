@@ -2,7 +2,7 @@
 #include <string.h>
 #include "User.h"
 
-int User::userCount = 0;
+int User::userCount = 1;
 
 User::User (const std::string &username, const std::string &password) {
     this->username = username;
@@ -14,8 +14,8 @@ User::User (const std::string &username, const std::string &password) {
         std::cerr << e.what() << std::endl;
         return;
     }
+    this->userId = this->userCount;
     this->userCount += 1;
-    this->userId;
 }
 
 User::User (const User &user) {
