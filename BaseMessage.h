@@ -21,8 +21,10 @@
                 return this->senderId;
             }
 
-            std::time_t getSentDate() const {
-                return this->sentDate;
+            std::string getSentDate() const {
+                return std::ctime(&sentDate);
             }
+
+            virtual void printMessage() = 0;
     };
 #endif
