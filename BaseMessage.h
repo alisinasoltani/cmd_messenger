@@ -25,6 +25,6 @@
                 return std::ctime(&sentDate);
             }
 
-            virtual void printMessage() = 0;
+            virtual void printMessage() const {}
     };
 #endif

@@ -12,11 +12,11 @@
                 this->msg = message_text;
             }
 
-            std::string getMessage() {
+            std::string getMessage() const {
                 return this->msg;
             }
 
-            void printMessage() override {
+            void printMessage() const override {
                 std::cout << BOLDCYAN << this->getSenderId() << ": " << this->msg << RESET << std::endl;
                 std::cout << CYAN << "sent at: " << this->getSentDate() << RESET << std::endl;
             }
@@ -35,7 +35,7 @@
                 return imgPath;
             }
 
-            void printMessage() override {
+            void printMessage() const override {
                 std::cout << BOLDCYAN << "image path: " << this->imgPath << RESET << std::endl;
                 std::cout << BOLDCYAN << this->getSenderId() << ": " << this->getMessage() << RESET << std::endl;
                 std::cout << CYAN << "sent at: " << this->getSentDate() << RESET << std::endl;
@@ -69,7 +69,7 @@
                 return this->is_quiz;
             }
 
-            void printMessage() override {
+            void printMessage() const override {
                 if (this->is_quiz) {
                     std::cout << BOLDCYAN << "quiz title: " << this->voteTitle << RESET << std::endl;
                 } else {
